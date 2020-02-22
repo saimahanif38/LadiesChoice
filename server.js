@@ -40,7 +40,7 @@ app.use(session({
     resave: false,
     saveUninitialized:false,
     store: new MongoStore({ mongooseConnection: mongoose.connection}),
-    cookie: {maxAge : 30 * 60 * 1000} 
+    cookie: {maxAge : 360 * 60 * 1000} 
   }))
 
 
@@ -66,10 +66,14 @@ app.use(session({
 app.use(express.static(path.join(__dirname,'public')));
 
 //PORT no.
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 //DB url
-const dbURL = 'mongodb://localhost/Ladies-Choice'
+// const dbURL = 'mongodb://localhost/Ladies-Choice';
+const dbURL = 'mongodb+srv://saima:recite786@cluster0-j3mda.mongodb.net/test?retryWrites=true&w=majority';
+
+
+
 //user api routes
 const users = require('./api/users-routes');
 
