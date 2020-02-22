@@ -1,0 +1,52 @@
+ <!--register in Form Start-->
+        <div class="bg container-fluid row alignment colorScheme ">
+           <div class="col-md-3 col-sm-4 col-xs-12">
+            </div>
+            <div class="col-md-6 col-sm-4 col-xs-12">
+              {{> _errors}}
+               {{> _msg}}
+            <!--Form-->
+            <form class="form-container pb-5 mt-2" action="/api/register" method="POST">
+                <h3>Sign Up</h3>
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <div class="form-group">
+                      <label for="exampleFullName">Full Name</label>
+                      <input required type="text" class="form-control" id="inputFname" placeholder="Full Name.." name="fullName">
+                    </div>
+                   <div class="row">
+                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="examplePassword">Password</label>
+                            <input required type="password" class="form-control" id="inputPassword" placeholder="Password.." name="password">
+                        </div>
+                    
+                     </div>
+                     <div class="col-md-6">
+                       <div class="form-group">
+                      <label for="exampleConfirmPassword">Confirm Password</label>
+                      <input required type="password" class="form-control" id="inputPassword" placeholder="Confirm Password.." name="password2">
+                    </div>
+                     </div>
+                   </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input required type="email" class="form-control" id="inputEmail" placeholder="Email.." name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputMobile">Mobile No</label>
+                        <input required type="number" class="form-control" id="inputMobile" placeholder="Mobile no. " name="mobileNo">
+                    </div>
+                    <div class="checkbox">
+                      <label>
+                        <input required type="checkbox"> I agree all the Terms and conditions
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                  </form>  
+                  <p class=" colorScheme ml-5 ">Already have an account log in here:  <a href="/login">Log In</a>
+                  </p>    
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-12 "></div>
+          
+        </div>
+        <!--regisster in Form End -->    

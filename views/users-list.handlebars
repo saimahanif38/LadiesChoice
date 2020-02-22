@@ -1,0 +1,38 @@
+<div class="row my-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+       <div class="row mt-4">
+            <div class="col-md-8 mb-3"><h1 class="text-center ">User's Table</h1></div>
+            <div class="col-md-4 mb-3">
+                <a href="/admin-panel">
+                    <button type="button" class="btn btn-primary btn-lg" style="font-size: 20px !important;">Back to main menu
+                    </button>
+                </a>
+            </div>
+        </div>
+    <table class="table">
+        <thead>
+            <tr class="table-success">
+            <th >Full Name</th>
+            <th >Email</th>
+            <th >Mobile Number</th>
+            <th >Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {{#each user_panel}}
+            <tr>
+                <td>{{this.fullName}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.mobileNo}}</td>
+                <td>
+                    <a href="/edit/{{this._id}}">Edit</a> |
+                    <a href="/delete/{{this._id}}">Delete</a>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+        </table>
+    </div>
+     <div class="col-md-2"></div>
+</div>

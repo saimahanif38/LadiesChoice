@@ -1,0 +1,49 @@
+<div class="container">
+		<div class="card_display">
+			<div class="container-fliud">
+				<div class="wrapper row">
+					<div class="preview col-md-4">
+						<div class="preview-pic tab-content">
+						  <div class="tab-pane active image-size" id="pic-1"><img src="img/sh1.jpg"></div>
+						  <div class="tab-pane image-size" id="pic-2"><img src="img/sh1.jpg"></div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs">
+						  <li class="active mx-2 ml-5"><a data-target="#pic-1" data-toggle="tab"><img src="img/sh1.jpg"></a></li>
+						  <li class="mx-2"><a data-target="#pic-2" data-toggle="tab"><img src="img/sh1.jpg"></a></li>
+						</ul>
+					</div>
+					<div class="details col-md-8">
+						<h3 class="product-title">{{productTitle}}</h3>
+						<div class="rating">
+							<div class="stars">
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star checked"></span>
+								<span class="fa fa-star"></span>
+								<span class="fa fa-star"></span>
+							</div>
+							<span class="review-no">41 reviews</span>
+						</div>
+						<p class="product-description">Suspendisse quos? Tempus cras iure temporibus? Eu laudantium cubilia sem sem! Repudiandae et! Massa senectus enim minim sociosqu delectus posuere.</p>
+						<h4 class="price">current price: <span>${{price}}</span></h4>
+						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+							<!--add-->
+							  <form >
+							<select name="cars">
+								<option value="volvo">Small</option>
+								<option value="saab">Medium</option>
+								<option value="fiat">Large</option>
+								<option value="audi">Extra Large</option>
+							</select>
+							<br><br>
+
+							</form>
+						<div class="action">
+							<button class="add-to-cart btn btn-danger" type="button">add to cart</button>
+							<a href="/receipt-page"><button class="like btn btn-danger" type="button">Order Now</button></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

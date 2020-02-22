@@ -1,0 +1,53 @@
+<div class="row my-5">
+    <div class="col-md-2"> </div>
+    <div class="col-md-8">
+        <div class="card" style="max-width:600px !important; height:120vh !important">
+           <span style="color: darkred;"> {{error}}</span>
+           <span style="color: rgb(6, 77, 6);"> {{message}}</span>
+            {{> _msg}}
+        <div class="card-header">
+           
+            <h3><span>Admin have access all those activities</span></h3>
+        </div>
+        <div class="card-body">
+            <div class="row my-3">
+                <div class="col-md-6">
+                    <a href="/orders">
+                        <button type="button" class="btn btn-primary btn-lg" style="font-size: 60px !important;">Orders
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/users-list">
+                        <button type="button" class="btn btn-primary btn-lg" style="font-size: 60px !important;">Users
+                        </button>
+                    </a>
+                </div>
+            </div>
+             <div class="row mt-5">
+                <div class="col-md-6">
+                    <a href="/add-item">
+                    <button type="button" class="btn btn-primary btn-lg" style="font-size: 48px !important;">Add Item
+                    </button>
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="/users-feedback">
+                    <button type="button" class="btn btn-primary btn-lg" style="font-size: 42px !important;">Users Feedback
+                    </button>
+                    </a>
+                </div>
+            </div>
+             <div class="row mt-5">
+                <div class="col-md-12">
+                    <a href="/all-products">
+                    <button type="button" class="btn btn-primary btn-lg" style="font-size: 48px !important;">See All Products
+                    </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

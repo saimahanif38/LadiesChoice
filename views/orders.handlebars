@@ -1,0 +1,38 @@
+<div class="row">
+ <div class="col-md-2"></div>
+    <div class="col-md-8 col-md-offset-2 mb-5">
+        <div class="row mt-5">
+            <div class="col-md-8"><h1 class="text-center ">All Orders</h1></div>
+            <div class="col-md-4">
+                <a href="/admin-panel">
+                    <button type="button" class="btn btn-primary btn-lg" style="font-size: 20px !important;">Back to main menu
+                    </button>
+                </a>
+            </div>
+        </div>
+        <hr>
+       <div class="row">
+           <div class="col-md-12">
+                {{# each orders}}
+                    <div class="card mb-2" style="max-width:800px !important;">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                {{# each this.items}}
+                                <li class="list-group-item">
+                                    <span class="badge badge-secondary">${{this.price}}</span>
+                                    {{this.item.title}} | {{this.qty}} Units
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <div class="card-footer"><strong>Total Price: ${{this.cart.totalPrice}}</strong></div>
+                        <div class="card-footer"><strong>Name: {{this.name}}</strong></div>
+                        <div class="card-footer"><strong>Address: {{this.address}}</strong></div>
+                    </div>
+                    {{/each}}
+           </div>
+       </div>
+    </div>
+ <div class="col-md-2">
+ </div>
+</div>

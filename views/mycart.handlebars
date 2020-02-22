@@ -1,0 +1,49 @@
+{{#if products}}
+<div class="row mt-5">
+<div class="col-sm-6 col-md-6 col-md-offset-3 col-sm offset-3">
+    <ul class="list-group">
+        {{#each products}}
+        <li class="list-group-item">
+            <strong>{{this.item.title}}</strong>
+            <span class="badge badge-success">${{this.price}}</span>
+            <div class="btn-group">
+            <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reduce<span class="caret"></span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="/reduce/{{this.item._id}}">Reduce by 1</a>
+                <a class="dropdown-item" href="/remove/{{this.item._id}}">Remove All</a>
+            </div>
+            
+        </div>
+        <span class="badge badge-dark" style="margin-left:200px;">{{this.qty}}</span>
+        </li>
+        {{/each}}
+    
+    </ul>
+</div>
+    </div>
+    <div class="row">
+        {{> _msg}}
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm offset-3">
+            <strong>Total:{{totalPrice }} </strong>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm offset-3">
+          <a href="/check-out">  <button type="button" class="btn btn-success mb-5">Checkout</button></a>
+        </div>
+    </div>
+{{else}}
+    <div class="row" style="background-color:white;">
+        <div class="mt-5 col-sm-6 col-md-6 col-md-offset-3 col-sm offset-3 mb-5">
+        <h1>No Items In cart</h1>
+        <img src="/img/emptyCart.JPG">
+        </div>
+    </div>
+          
+{{/if}}
+            
+             
+             

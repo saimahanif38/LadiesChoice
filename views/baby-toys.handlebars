@@ -1,0 +1,120 @@
+<!--Vertical Nav BAr-->
+        <div class="container-fluid" >
+            <div class="row">
+                <!--<div class=" col-md-3 col-sm-4 d-md-flex bg-danger pl-5 pr-2 min-vh-100 textColour  collapse" id="sidebar">-->
+                <div class=" col-md-3 col-sm-4 d-md-flex bg-vertical-nav-bar pl-5 pr-2 min-vh-50 textColourWhite ">
+                   <ul class="nav flex-column flex-nowrap">
+                            
+                            <li class="nav-item pt-5"><h4> Women</h4></li>
+                            <!--Casual Wear-->
+                            <li class="nav-item">
+                        <a class="nav-link collapsed textColourWhite" href="#submenu1" data-toggle="collapse"data-target="#submenu1"><h6> Casual Clothes  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h6></a>
+                                <div class="collapse" id="submenu1" aria-expanded="false">
+                                    <ul class="flex-column pl-2 pb-0 mb-0 nav" style="list-style-type:disc;">
+                                        <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/shalwarKameez"><p>Shalwaar Kameez</p></a></li>
+                                   <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/women-top-&-shirts"><p>Women's Tops & shirts</p></a></li>
+                                   <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/women-maxi"><p>Women's Maxi</p></a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--Casual Wear End-->
+                             <!--Accessories-->
+                             <li class="nav-item">
+                                <a class="nav-link collapsed textColourWhite" href="#submenu1" data-toggle="collapse" data-target="#submenu2"><h6> Accessories  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h6></a>
+                                <div class="collapse" id="submenu2" aria-expanded="false">
+                                    <ul class="flex-column pl-2 pb-0 mb-0 nav" style="list-style-type:disc;">
+                                          <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/bag"><p>Bag</p></a></li>
+                                    <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/shoes"><p>Shoes</p></a></li>  
+                                    </ul>
+                                </div>
+                            </li>
+                             
+                             <!--Accessories end-->
+                             <!--Traditional Wear-->
+                             <li class="nav-item">
+                                <a class="nav-link collapsed textColourWhite" href="#submenu1" data-toggle="collapse" data-target="#submenu3"><h6>Traditional Wear<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h6></a>
+                                <div class="collapse" id="submenu3" aria-expanded="false">
+                                    <ul class="flex-column pl-2 pb-0 mb-0 nav" style="list-style-type:disc;">
+                                        <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/kashmiri"><p>Kashmiri Dress
+                                        </p></a></li> 
+                                    </ul>
+                                </div>
+                            </li>
+                             <li class="nav-item pt-1"><h4> Children </h4></li>
+                            <!--Casual Wear-->
+                            <li class="nav-item">
+                                <a class="nav-link collapsed textColourWhite" href="#submenu1" data-toggle="collapse" data-target="#submenu4"><h6> Casual Clothes  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h6></a>
+                                <div class="collapse" id="submenu4" aria-expanded="false">
+                                    <ul class="flex-column pl-2 pb-0 mb-0 nav" style="list-style-type:disc;">
+                                        <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/baby-frocks"><p>Baby frocks</p></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <!--Casual Wear End-->
+                             <!--Accessories-->
+                             <li class="nav-item">
+                                <a class="nav-link collapsed textColourWhite" href="#submenu1" data-toggle="collapse" data-target="#submenu5"><h6> Accessories  <i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h6></a>
+                                <div class="collapse" id="submenu5" aria-expanded="false">
+                                    <ul class="flex-column pl-2 pb-0 mb-0 nav" style="list-style-type:disc;">
+                                      <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/baby-toys"><p>Baby Toys</p></a></li>    
+                                    <li class="nav-item "><a class="nav-link py-0 textColourWhite" href="/baby-bags"><p>Baby bags</p></a></li>  
+                                    </ul>
+                                </div>
+                            </li>
+                             
+                             <!--Accessories end-->
+                             <!--Traditional Wear-->
+                             <li class="nav-item">
+                                <a class="nav-link collapsed textColourWhite" href="#submenu1" data-toggle="collapse" data-target="#submenu6"><h6> Traditional Wear<i class="fa fa-chevron-circle-down" aria-hidden="true"></i></h6></a>
+                                <div class="collapse" id="submenu6" aria-expanded="false">
+                                    <ul class="flex-column pl-2 pb-0 mb-0 nav" style="list-style-type:disc;">
+                                    </ul>
+                                </div>
+                            </li>
+                             
+                             <!--Traditional Wear end-->
+                            
+                        </ul>
+                    
+                </div>
+                <div class="col-md-9">
+                  
+                  <!--First Row start of Cards-->
+                <h3 class="text-center" style="color:#f13750; margin-top:20px; "><strong>BABY TOYS</strong></h3>
+                  <hr>
+                 {{#each products}}
+                        <div class="row">
+                            {{#each this}}
+                    <div class="col-md-3 col-sm-6 my-3">
+                    <div class="product-grid">
+                      <div class="product-image">
+                          <a href="#">
+                              <img class="pic-1" src="{{this.imagePath1}}">
+                              <img class="pic-2" src="{{this.imagePath2}}">
+                          </a>
+                          <ul class="social">
+                              
+                              <li><a href="/add-to-cart/{{this._id}}" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                          </ul>
+                        </div>
+                   
+                          <div class="product-content">
+                              <h3 class="title">{{this.title}}</h3>
+                              <div class="price">${{this.price}}</div>
+                          <a class="add-to-cart" href="/add-to-cart/{{this._id}}">+ Add To Cart</a>
+                      </div>
+                  </div>
+              </div>
+                            {{/each}}
+                        </div>
+                  {{/each}}
+
+
+                  
+              </div>
+            </div>
+                
+            </div>
+          
+       

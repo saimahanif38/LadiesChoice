@@ -1,0 +1,48 @@
+ <div class="container">
+    <div class="row my-5">
+           
+        <div class="col-md-3"></div>
+        <div class="col-md-6 py-2 px-2"> 
+            <h2> Fill the form to upload data in database
+            </h2>
+             {{>_msg}}       
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="detail"> We have the following categories which are Shalwar Qameez,
+                        Tops And Shirts,Maxi,Women Bags,Women Shoes,Women Traditional Kashmiri,Baby Frocks,Toy,Baby Bags
+                    </label>
+                </div>
+               
+                <div class="form-group">
+                <label for="Title">Category</label>
+                <input type="text" class="form-control" id="inputTitle" placeholder="Category" name="title" required>
+                </div>
+                <div class="form-group">
+                <label for="Price">Price</label>
+                <input type="number" class="form-control" id="inputPrice" placeholder="Price in dollars" name="price" required>
+                </div>
+               
+            <div class="form-group">
+                <label for="exampleFormControlFile1">Select two images</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="file" multiple required>
+            </div>
+            
+                <div class="row">
+                    <div class="col-md-7">
+                        <button type="submit" class="btn btn-primary btn-lg" >Upload</button>
+                    </div>
+                    <div class="col-md-5">
+                            <a href="/admin-panel">
+                            <button type="button" class="btn btn-primary btn-lg" style="font-size: 20px !important;">Back to main menu
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                
+               
+            </form>
+        </div> 
+    </div>
+     <div class="col-md-3"></div>
+    </div>
+</div>
