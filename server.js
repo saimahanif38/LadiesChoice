@@ -43,10 +43,6 @@ app.use(session({
     cookie: {maxAge : 360 * 60 * 1000} 
   }))
 
-
-
-
-
   app.use(flash());
   // Passport middleware
   app.use(passport.initialize());
@@ -70,18 +66,16 @@ const PORT = process.env.PORT || 5000;
 
 //DB url
 // const dbURL = 'mongodb://localhost/Ladies-Choice';
-const dbURL = 'mongodb+srv://saima:recite786@cluster0-j3mda.mongodb.net/test?retryWrites=true&w=majority';
-
-
+const dbURL = 'mongodb+srv://saima:recite786@cluster0-j3mda.mongodb.net/Ladies_Choice?retryWrites=true&w=majority';
 
 //user api routes
 const users = require('./api/users-routes');
-
 
 //use route
 app.use('/api',users);
 
 var loginFlag=false;
+
 //Login route
 app.get('/login',csrfProtection,(req,res) =>{
     if (adminFlag===true){

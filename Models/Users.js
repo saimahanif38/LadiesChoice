@@ -17,7 +17,7 @@ const UserSchema = new Schema ({
         required : true
     },
     mobileNo : {
-        type : Number,
+        type : String,
         required : true
     }
 });
