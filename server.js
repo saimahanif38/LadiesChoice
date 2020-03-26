@@ -65,8 +65,8 @@ app.use(express.static(path.join(__dirname,'public')));
 const PORT = process.env.PORT || 5000;
 
 //DB url
-// const dbURL = 'mongodb://localhost/Ladies-Choice';
-const dbURL = 'mongodb+srv://saima:recite786@cluster0-j3mda.mongodb.net/Ladies_Choice?retryWrites=true&w=majority';
+const dbURL = 'mongodb://localhost/Ladies-Choice';
+//const dbURL = 'mongodb+srv://saima:recite786@cluster0-j3mda.mongodb.net/Ladies_Choice?retryWrites=true&w=majority';
 
 //user api routes
 const users = require('./api/users-routes');
