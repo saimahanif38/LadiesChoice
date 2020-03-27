@@ -7,7 +7,9 @@ const schema = new Schema ({
     cart: { type: Object, required: true},
     address: {type: String, required: true},
     name: {type: String, required: true},
-    paymentID: {type: String, required: true}
+    zipcode:{type: Number, required: true},
+    phno: {type: String, required: true},
+    alphno:{type: String, required: true}
 });
 
 module.exports = mongoose.model('Order', schema);

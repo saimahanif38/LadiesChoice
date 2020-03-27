@@ -423,6 +423,8 @@ app.post('/admin-login-check',(req,res)=>{
 
 //orders for admin panel
 app.get('/orders', (req,res) => {
+    var counter = [];
+    var count=0;
     if( loginFlag===true){
         req.flash('error_msg','Users dont have access to all orders');
         return res.redirect('/profile');
@@ -445,10 +447,12 @@ app.get('/orders', (req,res) => {
             name_array.push(order.name);
             cart = new Cart(order.cart);
             order.items = cart.generateArray();
+            count++;
+            counter.push(count);
         });
         // console.log(address_array);
-        // console.log(name_array);
-        res.render('orders',{orders: orders,address:address_array,name: name_array, admin:admin});
+        //console.log(counter);
+        res.render('orders',{orders: orders,address:address_array,name: name_array, admin:admin,counter:counter});
     });
 }
 );
@@ -743,53 +747,85 @@ app.get('/women-top-&-shirts',function(req,res,next){
 
 
 
-  app.post("/charge",ensureAuthenticated, (req, res) => {
-    
+app.post("/charge",ensureAuthenticated, (req, res) => {
+    var counter=0;
     if(!req.session.cart)
     res.render('mycart');
     var cart = new Cart(req.session.cart);
-    const stripe = require('stripe')('sk_test_hsQuBL1QqkJn7s2JhC7SBZbs00dJbSul2a');
+    //const stripe = require('stripe')('sk_test_hsQuBL1QqkJn7s2JhC7SBZbs00dJbSul2a');
     //conditions to check validation on email,address
     if(!req.body.name || !req.body.address)
     {
         req.flash('error_msg','Kindly Fill all input fields!'); 
         return res.redirect('/check-out');
     }
+   // console.log(req.user);
 
-    try {
-      stripe.customers
-        .create({
-          name: req.body.name,
-          source: req.body.stripeToken
-        })
-        .then(customer =>
-          stripe.charges.create({
-            amount:cart.totalPrice * 100,
-            currency: "usd",
-            customer: customer.id,
-            description: "Test Charge"
-          }, function (err, charge){
             var order = new Order({
                 user : req.user,
                 cart: cart,
                 address:req.body.address,
                 name: req.body.name,
-                paymentID: charge.id
+                zipcode:req.body.zipcode,
+                phno:req.body.phno,
+                alphno: req.body.alphno
             });
             order.save(function(err,result){});
-        })
-        )
-        .then(() => 
-        {
+            
         req.session.cart = null;
-        req.flash('success_msg', 'You Have Successfully paid the amount!');
+        req.flash('success_msg', 'You Have Successfully placed the order we will dispatch your order in 5 to 8 days!');
         res.redirect('/clothing&accessories');
-        })
-        .catch(err =>{ res.send('error:'+ err);});
-    } catch (err) { 
-      res.send('error');
-    }
+     
   });
+
+
+//   app.post("/charge",ensureAuthenticated, (req, res) => {
+    
+//     if(!req.session.cart)
+//     res.render('mycart');
+//     var cart = new Cart(req.session.cart);
+//     //const stripe = require('stripe')('sk_test_hsQuBL1QqkJn7s2JhC7SBZbs00dJbSul2a');
+//     //conditions to check validation on email,address
+//     if(!req.body.name || !req.body.address)
+//     {
+//         req.flash('error_msg','Kindly Fill all input fields!'); 
+//         return res.redirect('/check-out');
+//     }
+    
+//     try {
+//       stripe.customers
+//         .create({
+//           name: req.body.name,
+//           source: req.body.stripeToken
+//         })
+//         .then(customer =>
+//           stripe.charges.create({
+//             amount:cart.totalPrice * 100,
+//             currency: "usd",
+//             customer: customer.id,
+//             description: "Test Charge"
+//           }, function (err, charge){
+//             var order = new Order({
+//                 user : req.user,
+//                 cart: cart,
+//                 address:req.body.address,
+//                 name: req.body.name,
+//                 paymentID: charge.id
+//             });
+//             order.save(function(err,result){});
+//         })
+//         )
+//         .then(() => 
+//         {
+//         req.session.cart = null;
+//         req.flash('success_msg', 'You Have Successfully paid the amount!');
+//         res.redirect('/clothing&accessories');
+//         })
+//         .catch(err =>{ res.send('error:'+ err);});
+//     } catch (err) { 
+//       res.send('error');
+//     }
+//   });
 
 
 
