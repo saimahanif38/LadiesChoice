@@ -442,7 +442,7 @@ app.get('/orders', (req,res) => {
         var cart;
         var address_array=[];
         var name_array=[];
-        orders.forEach(function(order){
+        orders.forEach(function(order,index){
             address_array.push(order.address);
             name_array.push(order.name);
             cart = new Cart(order.cart);
@@ -451,8 +451,8 @@ app.get('/orders', (req,res) => {
             counter.push(count);
         });
         // console.log(address_array);
-        //console.log(counter);
-        res.render('orders',{orders: orders,address:address_array,name: name_array, admin:admin,counter:counter});
+        console.log(counter);
+        res.render('orders',{orders,address:address_array,name: name_array, admin:admin,counter:counter});
     });
 }
 );
