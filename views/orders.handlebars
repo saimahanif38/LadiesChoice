@@ -9,13 +9,14 @@
             </div>
         </div>
 <div class="row">
-  <div class="col-md-1"></div>
-  <div class="col-md-10">
+  
+  <div class="col-md-12">
     <table class="table table-hover table-bordered" >
     <thead>
         <tr>
             <th>S no.</th>
             <th>Item Name</th>
+             <th>Item Id</th>
             <th>Items price</th>
             <th>Items quantity</th>
             <th>User Name</th>
@@ -24,6 +25,7 @@
             <th>Phone number</th>
             <th>Alternate Phone number</th>
             <th>Area Zip code</th>
+            
         </tr>
     </thead>
     <tbody> 
@@ -35,21 +37,28 @@
                      
                     <td>
                         {{# each this.items}}
-                        <li class="list-group-item">
+                        <li class="list-group-item border-0">
                             {{this.item.title}}
                         </li>
                         {{/each}}
                     </td>
                     <td>
+                         {{# each this.items}}
+                            <li class="list-group-item border-0">
+                            {{this.item._id}}
+                            </li>
+                        {{/each}}
+                    </td>
+                    <td>
                         {{# each this.items}}
-                            <li class="list-group-item">
+                            <li class="list-group-item border-0">
                             {{this.price}}
                             </li>
                         {{/each}}
                     </td>
                     <td>
                         {{# each this.items}}
-                            <li class="list-group-item">
+                            <li class="list-group-item border-0">
                             {{this.qty}}
                             </li>
                         {{/each}}
@@ -59,8 +68,9 @@
                         {{this.name}} 
                     </td>
                     <td>
-                       {{this.cart.totalPrice}}
+                       {{this.cart.totalPrice}} + 150 (Delivery Charges)
                     </td>
+                    
                     <td>
                         {{this.address}}
                     </td>
@@ -73,6 +83,7 @@
                     <td>
                         {{this.zipcode}}
                     </td>
+                    
                 </tr>
         
         

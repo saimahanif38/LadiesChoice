@@ -423,8 +423,7 @@ app.post('/admin-login-check',(req,res)=>{
 
 //orders for admin panel
 app.get('/orders', (req,res) => {
-    var counter = [];
-    var count=0;
+    
     if( loginFlag===true){
         req.flash('error_msg','Users dont have access to all orders');
         return res.redirect('/profile');
@@ -440,19 +439,14 @@ app.get('/orders', (req,res) => {
         }
         //console.log(orders);
         var cart;
-        var address_array=[];
-        var name_array=[];
-        orders.forEach(function(order,index){
-            address_array.push(order.address);
-            name_array.push(order.name);
+        orders.forEach(function(order){
             cart = new Cart(order.cart);
             order.items = cart.generateArray();
-            count++;
-            counter.push(count);
+            
         });
         // console.log(address_array);
-        console.log(counter);
-        res.render('orders',{orders,address:address_array,name: name_array, admin:admin,counter:counter});
+        //console.log(orders[0].cart.items);
+        res.render('orders',{orders, admin});
     });
 }
 );
@@ -521,7 +515,8 @@ app.get('/mycart',function(req,res,next){
         return res.render('mycart', {products: null});
     }
     var cart = new Cart(req.session.cart);
-    return res.render('mycart', {products: cart.generateArray(), totalPrice: cart.totalPrice});
+    var totalPrice = cart.totalPrice+150;
+    return res.render('mycart', {products: cart.generateArray(), totalPrice: totalPrice});
 });
 
 // check-out route
@@ -530,7 +525,11 @@ app.get('/check-out',ensureAuthenticated,function(req,res,next){
     { return res.render('mycart'); }
     url= req.url;
     var cart = new Cart(req.session.cart);
-    return res.render('check-out',{total: cart.totalPrice});
+    var totalPriceBeforeDelivery= cart.totalPrice;
+    var totalPricePlusDelivery = cart.totalPrice + 150;
+    cart.totalPrice = totalPricePlusDelivery ;
+    
+    return res.render('check-out',{total: totalPricePlusDelivery,totalPriceBeforeDelivery });
 });
 
 //users-feedback route
@@ -771,7 +770,7 @@ app.post("/charge",ensureAuthenticated, (req, res) => {
                 alphno: req.body.alphno
             });
             order.save(function(err,result){});
-            
+            console.log(order.cart.items); //*** */
         req.session.cart = null;
         req.flash('success_msg', 'You Have Successfully placed the order we will dispatch your order in 5 to 8 days!');
         res.redirect('/clothing&accessories');

@@ -31,7 +31,7 @@
                     <td>sno</td>
                     <td>{{this.item.title}}</td>
                     <td>{{this.qty}}</td>
-                    <td>${{this.price}}</td>
+                    <td>Rs{{this.price}}</td>
                     <td>
                         <div class="btn-group">
                     <button type="button" class="btn btn-info btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +50,7 @@
             {{/each}}
             <tr>
             <td><strong>Total Amount</strong></td>
-            <td><strong>{{totalPrice }}</strong></td>
+            <td><strong>{{totalPrice }}Rs  </strong>(It includes Delivery Charges 150Rs)</td>
         </tr>
     </tbody>
 </table>
