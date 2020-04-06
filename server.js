@@ -504,7 +504,7 @@ app.post('/feedback', (req, res) => {
     });
    }
   });
-
+var receiptArray;
 //My Cart route
 app.get('/mycart',function(req,res,next){
     if (adminFlag===true){
@@ -758,8 +758,9 @@ app.post("/charge",ensureAuthenticated, (req, res) => {
         req.flash('error_msg','Kindly Fill all input fields!'); 
         return res.redirect('/check-out');
     }
-   // console.log(req.user);
-
+    //console.log(cart.items.item);
+    
+    var receiptInfo = req.session.cart;
             var order = new Order({
                 user : req.user,
                 cart: cart,
@@ -769,11 +770,18 @@ app.post("/charge",ensureAuthenticated, (req, res) => {
                 phno:req.body.phno,
                 alphno: req.body.alphno
             });
-            order.save(function(err,result){});
-            console.log(order.cart.items); //*** */
-        req.session.cart = null;
-        req.flash('success_msg', 'You Have Successfully placed the order we will dispatch your order in 5 to 8 days!');
-        res.redirect('/clothing&accessories');
+            order.save(function(err,result){}); 
+            //console.log(req.session.cart.items."5e88bf97ecc5740428867e00".item);
+            //console.log(order.cart.items[0]); //*** */
+            var cart = new Cart(req.session.cart);
+            var totalPrice = cart.totalPrice+150;
+            req.session.cart = null;
+            res.render('receipt', {products: cart.generateArray(), totalPrice: totalPrice});
+        
+        //console.log(receiptInfo.item);
+        //res.render('receipt',{order: receiptInfo})
+        //req.flash('success_msg', 'You Have Successfully placed the order we will dispatch your order in 5 to 8 days!');
+        //res.redirect('/clothing&accessories');
      
   });
 
